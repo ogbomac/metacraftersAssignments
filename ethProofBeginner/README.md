@@ -27,26 +27,40 @@ The OMACOIN Token Contract is a basic Ethereum smart contract that implements a 
 #### Minting Tokens
 
 solidity
+  
 // Assuming the contract is deployed and you have its address
+
 MyToken myToken = MyToken(addressOfDeployedContract);
+
 address recipient = 0xAddress; // Replace with an actual Ethereum address
+
 uint amountToMint = 100; // Replace with the desired amount
+
 myToken.mint(recipient, amountToMint);
 
 
 ###**Burning Tokens**
+
 solidity
+
 Copy code
+
 // Assuming the contract is deployed and you have its address
+
 MyToken myToken = MyToken(addressOfDeployedContract);
+
 address owner = msg.sender; // The address that owns the tokens
+
 uint amountToBurn = 50; // Replace with the desired amount
+
 myToken.burn(owner, amountToBurn);
 
 
 
 ###**Help**
+
 If you encounter any issues or have questions, you can reach out to ogbomaccarthy
 
 ###**Authors**
+
 ogbomaccarthy
