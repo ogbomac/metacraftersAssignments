@@ -2,7 +2,7 @@
 pragma solidity 0.8.18;
 
 
-contract MyToken {
+contract MyCoin {
 
     // public variables here
     string public tokenName = "OMACOIN";
