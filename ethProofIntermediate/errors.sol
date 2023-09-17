@@ -1,35 +1,32 @@
-
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.18;
 
-contract errors {
-    address public owner;
+contract errors{
 
-    // variable of your choice
-    bool public verified;
-    
-    // use require
-    function withRequire(bool status) public {
-        require(owner == msg.sender, " You are not allowed to change the status because you are not the owner");
-        verified = status;
-    }
+    address public student;
+    uint public score;
+    string public name;
 
-    // use revert
-     function withRevert(bool status) public {
-        if (owner != msg.sender) {
-            revert("Permission Denied");
+    function setscore(uint _score) public{
+        if (_score>101){
+            revert("the student's score should be lesser than or equal to 100");
         }
-        verified = status;
+        score = _score ;
     }
 
-    // use assert
-    function withAssert(bool status) public {
-        assert(owner == msg.sender);
-        verified = status;
+    function newname(string memory _name) public{
+        require(bytes(_name).length > 4, "the student's name is too short");
+            name= _name ;     
+        }
+
+    // address 0 = 0x0000000000000000000000000000000000000000
+    function newstudent(address _student) public{
+        assert( _student!= address(0));
+        student = _student ;     
     }
 
     constructor() {
-        owner = msg.sender;
+        student = msg.sender;
+        name = 'omac' ; 
     }
 }
-
