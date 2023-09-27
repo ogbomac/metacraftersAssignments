@@ -60,16 +60,21 @@ contract omacCoin  is IERC20 {
 
         balances[_from] -= _value;
         balances[_to] += _value;
+        allowances[_from][msg.sender] -= _value;
         emit Transfer(_from, _to, _value);
         return true;
     }
 
     function approve(address _spender, uint256 _value) external returns (bool) {
         allowances[msg.sender][_spender] = _value;
+        emit Approval(msg.sender, _spender, _value);
         return true;
     }
 
     function burn (uint256 _value) external returns(bool) {
+        if (_value > balances[msg.sender]) {
+            revert("you can't burn more omacCoins than you have");
+        }
         balances[msg.sender] -= _value;
         totalSupply -= _value;
         return true;
@@ -85,6 +90,7 @@ contract omacCoin  is IERC20 {
         require(msg.sender == contractOwner, "only contract owner address can mint omacCoins");
         balances[_recipient] += _value;
         totalSupply += _value;
+        return true;
     }
 
 }
