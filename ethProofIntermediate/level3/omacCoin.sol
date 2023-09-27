@@ -29,8 +29,8 @@ contract omacCoin  is IERC20 {
     uint8 public decimals = 0;
     uint public totalSupply = 0;
 
-    mapping (address => uint) public balances;
-    mapping (address => mapping (address => uint)) public allowances;
+    mapping (address => uint) balances;
+    mapping (address => mapping (address => uint)) allowances;
 
     function balanceOf(address _owner) external view returns (uint256) {
         return(balances[_owner]);
