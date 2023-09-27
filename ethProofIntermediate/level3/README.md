@@ -1,7 +1,3 @@
-Certainly, here's a sample README file for the "omacCoin" ERC-20 token contract:
-
----
-
 # omacCoin (OC) ERC-20 Token Contract
 
 ## Overview
@@ -63,7 +59,3 @@ This contract is released under the MIT License. You can find the full license d
 ## Feedback and Contributions
 
 Feedback and contributions are welcome! If you discover issues or have suggestions for improvements, please create an issue or submit a pull request.
-
----
-
-Feel free to customize this README to include any additional information or considerations specific to your project and its deployment. Additionally, if you have a more detailed development guide or documentation, you can link to it from this README.
