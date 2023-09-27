@@ -22,7 +22,7 @@ interface IERC20 {
 
 
 contract omacCoin  is IERC20 {
-    
+
     string public name = "omacCoin";
     string public symbol = "OC";
 
@@ -69,7 +69,22 @@ contract omacCoin  is IERC20 {
         return true;
     }
 
+    function burn (uint256 _value) external returns(bool) {
+        balances[msg.sender] -= _value;
+        totalSupply -= _value;
+        return true;
+    }
 
+    address public contractOwner;
 
+    constructor() {
+        contractOwner= msg.sender;
+    }
+
+    function mint(address _recipient, uint256 _value) external returns(bool) {
+        require(msg.sender == contractOwner, "only contract owner address can mint omacCoins");
+        balances[_recipient] += _value;
+        totalSupply += _value;
+    }
 
 }
